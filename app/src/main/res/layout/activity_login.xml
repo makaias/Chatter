@@ -7,7 +7,7 @@
     tools:context=".LoginActivity">
 
     <include
-        android:id="@+id/loginActivityToolbar"
+        android:id="@+id/mainActivityToolbar"
         layout="@layout/application_bar_layout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginActivityToolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/mainActivityToolbar" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginActivityDisplayPassword"
