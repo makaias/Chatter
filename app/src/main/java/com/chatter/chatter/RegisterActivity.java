@@ -44,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         registrationProgressDialog = new ProgressDialog(this);
 
         registerButton.setOnClickListener(view -> {
+            // TODO: check if device is online
             // TODO: check if the user is already logged in
             // the user should not register a new account while logged in
             final String name = nameInputLayout.getEditText().getText().toString();
@@ -83,14 +84,18 @@ public class RegisterActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 registrationProgressDialog.dismiss();
                 Log.d("RegisterActivity", "createUserWithEmail:success (email: " + email);
-                final Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                startActivity(mainIntent);
-                finish();
+                updateUI();
             } else {
                 registrationProgressDialog.hide();
                 Log.w("RegisterActivity", "createUserWithEmail:failure", task.getException());
                 Toast.makeText(RegisterActivity.this, "Authentication failed", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void updateUI() {
+        final Intent mainIntent = new Intent(RegisterActivity.this, MainActivity.class);
+        startActivity(mainIntent);
+        finish();
     }
 }

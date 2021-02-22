@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         firebaseAuth = FirebaseAuth.getInstance();
-        final Toolbar mainActivityToolbar = (Toolbar) findViewById(R.id.mainApplicationBar);
+        final Toolbar mainActivityToolbar = (Toolbar) findViewById(R.id.loginActivityToolbar);
         setSupportActionBar(mainActivityToolbar);
         getSupportActionBar().setTitle("Chatter");
     }
