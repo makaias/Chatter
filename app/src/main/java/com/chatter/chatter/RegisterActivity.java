@@ -32,10 +32,10 @@ public class RegisterActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
-        nameInputLayout = (TextInputLayout) findViewById(R.id.registerActivityDisplayName);
-        emailInputLayout = (TextInputLayout) findViewById(R.id.registerActivityDisplayEmail);
-        passwordInputLayout = (TextInputLayout) findViewById(R.id.registerActivityDisplayPassword);
-        final Button registerButton = (Button) findViewById(R.id.RegisterActivityCreateAccountButton);
+        nameInputLayout = findViewById(R.id.registerActivityDisplayName);
+        emailInputLayout = findViewById(R.id.registerActivityDisplayEmail);
+        passwordInputLayout = findViewById(R.id.registerActivityDisplayPassword);
+        final Button registerButton = findViewById(R.id.RegisterActivityCreateAccountButton);
         final Toolbar toolbar = findViewById(R.id.registerApplicationBar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Create Account");
