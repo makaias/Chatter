@@ -3,18 +3,23 @@ package com.chatter.chatter;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
+    private ViewPager mainViewPager;
+    private SectionPagerAdapter sectionPagerAdapter;
+    private TabLayout mainTabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
         final Toolbar mainActivityToolbar = (Toolbar) findViewById(R.id.mainActivityToolbar);
         setSupportActionBar(mainActivityToolbar);
         getSupportActionBar().setTitle("Chatter");
+
+        mainViewPager = findViewById(R.id.mainActivityTabPager);
+        sectionPagerAdapter = new SectionPagerAdapter(getSupportFragmentManager());
+        mainViewPager.setAdapter(sectionPagerAdapter);
+
+        mainTabLayout = findViewById(R.id.mainActivityTabLayout);
+        mainTabLayout.setupWithViewPager(mainViewPager);
     }
 
     @Override
