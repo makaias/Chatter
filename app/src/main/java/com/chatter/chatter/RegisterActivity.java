@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         nameInputLayout = (TextInputLayout) findViewById(R.id.registerActivityDisplayName);
         emailInputLayout = (TextInputLayout) findViewById(R.id.registerActivityDisplayEmail);
         passwordInputLayout = (TextInputLayout) findViewById(R.id.registerActivityDisplayPassword);
-        final Button registerButton = (Button) findViewById(R.id.startActivityRegisterButton);
+        final Button registerButton = (Button) findViewById(R.id.RegisterActivityCreateAccountButton);
 
         registerButton.setOnClickListener(view -> {
             // TODO: check if the user is already logged in

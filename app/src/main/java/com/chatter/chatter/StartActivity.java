@@ -15,14 +15,11 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        registerButton = (Button) findViewById(R.id.startActivityRegisterButton);
+        registerButton = findViewById(R.id.startActivityRegisterButton);
 
-        registerButton.setOnClickListener((new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                final Intent registrationIntent = new Intent(StartActivity.this, RegisterActivity.class);
-                startActivity(registrationIntent);
-            }
+        registerButton.setOnClickListener((view -> {
+            final Intent registrationIntent = new Intent(StartActivity.this, RegisterActivity.class);
+            startActivity(registrationIntent);
         }));
     }
 }
