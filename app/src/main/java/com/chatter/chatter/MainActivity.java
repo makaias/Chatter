@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.accounts.Account;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
         if(item.getItemId() == R.id.mainMenuLogoutItem){
             FirebaseAuth.getInstance().signOut();
             updateUIToStartActivity();
+        }
+        if(item.getItemId() == R.id.mainMenuAccountSettingsItem){
+            final Intent accountSettingsIntent = new Intent(MainActivity.this, AccountSettingsActivity.class);
+            startActivity(accountSettingsIntent);
         }
         return true;
     }
