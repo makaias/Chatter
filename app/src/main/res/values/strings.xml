@@ -16,4 +16,5 @@
     <string name="change_image">Change Image</string>
     <string name="change_status">Change Status</string>
     <string name="user_profile_image">User profile image</string>
+    <string name="default_name">Default Name</string>
 </resources>
