@@ -18,8 +18,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AccountSettingsActivity extends AppCompatActivity {
 
-    private DatabaseReference databaseReference;
-    private FirebaseUser currentUser;
     private ImageView accountSettingsImageView;
     private TextView accountSettingsNameView;
     private TextView accountSettingsDescriptionView;
@@ -34,10 +32,14 @@ public class AccountSettingsActivity extends AppCompatActivity {
         accountSettingsNameView = findViewById(R.id.accountSettingsNameTextView);
         accountSettingsDescriptionView = findViewById(R.id.accountSettingsDescriptionTextView);
 
-        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        updateAccountSettingsData();
+    }
+
+    private void updateAccountSettingsData() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         Preconditions.checkNotNull(currentUser, "currentUser should not be null");
         final String userId = currentUser.getUid();
-        databaseReference = FirebaseDatabase.getInstance().
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().
                 getReference().
                 child("Users").
                 child(userId);
@@ -53,7 +55,6 @@ public class AccountSettingsActivity extends AppCompatActivity {
 
                 accountSettingsNameView.setText(name);
                 accountSettingsDescriptionView.setText(description);
-
             }
 
             @Override
