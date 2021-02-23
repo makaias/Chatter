@@ -11,7 +11,9 @@
         android:theme="@style/Theme.Chatter">
         <activity android:name=".AccountEditActivity"
             android:parentActivityName=".AccountSettingsActivity" />
-        <activity android:name=".AccountSettingsActivity" />
+        <activity
+            android:name=".AccountSettingsActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".StartActivity"/>

@@ -91,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 storeDefaultUserDataToRealtimeDatabase(userName, email, task);
             } else {
-                registrationProgressDialog.hide();
+                registrationProgressDialog.dismiss();
                 Log.w("RegisterActivity", "createUserWithEmail:failure", task.getException());
                 Toast.makeText(RegisterActivity.this, "Authentication failed", Toast.LENGTH_LONG).show();
             }

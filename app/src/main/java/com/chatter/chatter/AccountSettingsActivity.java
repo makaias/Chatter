@@ -2,8 +2,12 @@ package com.chatter.chatter;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,19 +25,39 @@ public class AccountSettingsActivity extends AppCompatActivity {
     private ImageView accountSettingsImageView;
     private TextView accountSettingsNameView;
     private TextView accountSettingsDescriptionView;
+    private Button changeImageButton;
+    private Button changeDescriptionButton;
+    private Toolbar accountSettingsToolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_settings);
-
+        setupCustomToolbar();
         accountSettingsImageView = findViewById(R.id.accountSettingsImageView);
         accountSettingsNameView = findViewById(R.id.accountSettingsNameTextView);
         accountSettingsDescriptionView = findViewById(R.id.accountSettingsDescriptionTextView);
+        changeImageButton = findViewById(R.id.accountSettingsChangeImageButton);
+        changeDescriptionButton = findViewById(R.id.accountSettingsChangeStatusButton);
 
         updateAccountSettingsData();
+
+        changeDescriptionButton.setOnClickListener(view -> {
+            final String description = accountSettingsDescriptionView.getText().toString();
+            final Intent accountEditIntent = new Intent(AccountSettingsActivity.this, AccountEditActivity.class);
+            accountEditIntent.putExtra("description", description);
+            startActivity(accountEditIntent);
+        });
     }
+
+    private void setupCustomToolbar() {
+        accountSettingsToolbar = findViewById(R.id.accountSettingsActivityBarLayout);
+        setSupportActionBar(accountSettingsToolbar);
+        getSupportActionBar().setTitle("Account Settings");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
 
     private void updateAccountSettingsData() {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();

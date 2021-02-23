@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                         Log.d("LoginActivity", "signInWithEmail:success");
                         updateUI();
                     } else {
-                        loginProgressDialog.hide();
+                        loginProgressDialog.dismiss();
                         Log.w("LoginActivity", "signInWithEmail:failure", task.getException());
                         Toast.makeText(LoginActivity.this, "Authentication failed.",
                                 Toast.LENGTH_LONG).show();
